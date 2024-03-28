@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo2.png';
 import { FaRegUserCircle } from "react-icons/fa";
 import { BsCartPlus } from "react-icons/bs";
-import '../../../App.css';
 import ResponsiveNavbar from './ResponsiveNavbar';
+import '../../../App.css';
 
 const Navbar = () => {
     return (

@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import HomeSlider from './HomeSlider';
 
 const Home = () => {
     return (
-        <div className='parent-container'>
-            <h2>Home Page</h2>
+        <div>
+            <HomeSlider />
+            <div className='parent-container'>
+            </div>
         </div>
     );
 };
