@@ -1,0 +1,30 @@
+/* --------- NAVBAR CSS ---------- */
+.menu-list-box li {
+  font-weight: 600;
+  color: #191613;
+}
+.menu-list-box li:hover{
+  color: #D90368;
+  transition: 0.3s;
+}
+.src-input:focus-visible{
+  outline: 0;
+}
+
+/* --------- RESPONSIVE NAVBAR CSS ---------- */
+@media screen and (max-width: 992px) {
+  .laptop-menu{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1440px) {
+  .respon-menu{
+    display: none;
+  }
+}
+
+ul.menu-list-box li {
+  margin-bottom: 20px;
+  color: #fff;
+}

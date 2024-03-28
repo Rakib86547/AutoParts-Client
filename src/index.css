@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: "Dosis", sans-serif;
+    font-optical-sizing: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::selection{
+    background: #D90368;
+    color: #fff;
+}
+li{
+    list-style: none;
+}
+
+.parent-container{
+    width: 1280px;
+    max-width: 100%;
+    margin: auto;
+}
+
+
+
