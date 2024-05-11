@@ -30,7 +30,7 @@ const ResponsiveNavbar = () => {
                     </div>
                 </div>
 
-                <div className={`bg-[#D90368] w-[200px] pl-3 pt-3 h-screen absolute ${open ? '-left-full duration-500' : 'left-0 duration-500'}`}>
+                <div className={`bg-[#D90368] w-[200px] pl-3 pt-3 h-screen z-10 absolute ${open ? '-left-full duration-500' : 'left-0 duration-500'}`}>
                     <ul className='menu-list-box'>
                         <li><Link>Home</Link></li>
                         <li><Link>Blogs</Link></li>

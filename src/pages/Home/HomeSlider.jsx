@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
 import React from 'react';
@@ -8,16 +10,17 @@ import banner2 from '../../../src/assets/Sliders/banner-2.png'
 import banner3 from '../../../src/assets/Sliders/banner-3.png'
 
 const HomeSlider = () => {
+   
     const settings = {
         dots: true,
         infinite: true,
         speed: 2000,
-        autoplaySpeed: 200,
+        autoplaySpeed: 8000,
         fade: true,
         autoplay: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        initialSlide: 0,
+        initialSlide: 0,    
         responsive: [
             {
                 breakpoint: 1024,
@@ -70,7 +73,7 @@ const HomeSlider = () => {
             <div className="slider-container">
                 <Slider {...settings}>
                     {
-                        sliderContent.map(content => (<Sliders content={content}></Sliders>))
+                        sliderContent.map((content, index) => (<Sliders key={index} content={content}></Sliders>))
                     }
                 </Slider>
             </div>

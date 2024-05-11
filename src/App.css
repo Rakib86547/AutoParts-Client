@@ -43,3 +43,8 @@ ul.menu-list-box li {
   /* height: 500px; */
   padding: 110px 0px;
 }
+
+/* -------- CATEGORY SECTION CSS ------------- */
+.btn{
+  padding: 10px 40px!important;
+}
