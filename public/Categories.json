@@ -2,68 +2,42 @@
  [
     {
         "category_id": "01",
-        "title": "INTERIOR",
-        "products": {
-            "product1": "Seats",
-           "product2": "Steering Wheels",
-            "product3": "Dash Cover",
-            "product4": "Floor Mats"
-        },
-        "img": "https://i.ibb.co/vP2nWby/1.jpg"
+        "category_name": "Service Kits",        
+        "img": "https://i.ibb.co/dBPcR3L/Service-Kits.png"
     },
     {
         "category_id": "02",
-        "title": "EXTERIOR",
-        "products": {
-            "product1": "Running Boards",
-           "product2": "Custom Grilles",
-            "product3": "Off-Road Bumpers",
-            "product4": "Body Kits"
-        },
-        "img": "https://i.ibb.co/jJhKHKk/2.jpg"
+        "category_name": "Brake Discs & Pads",        
+        "img": "https://i.ibb.co/THSdVZc/Brake-Discs-Pads.png"
     },
     {
         "category_id": "03",
-        "title": "WHEELS & TIRES",
-        "products": {
-            "product1": "Custom Wheels",
-           "product2": "Tires",
-            "product3": "Factory Wheels",
-            "product4": "Center Caps"
-        },
-        "img": "https://i.ibb.co/pQsK3DC/3.jpg"
+        "category_name": "Suspension",       
+        "img": "https://i.ibb.co/zHLZ9J2/Service-Kits-2.png"
     },
     {
         "category_id": "04",
-        "title": "PERFORMANCE",
-        "products": {
-            "product1": "Exhausted System",
-           "product2": "Brakes",
-            "product3": "Performance Chips",
-            "product4": "Starting & Charging"
-        },
-        "img": "https://i.ibb.co/g7qGtGV/4.jpg"
+        "category_name": "Engine Parts",        
+        "img": "https://i.ibb.co/hFCfWrS/Engine-Parts.png"
     },
     {
         "category_id": "05",
-        "title": "BODY PARTS",
-        "products": {
-            "product1": "Mirrors",
-           "product2": "Hoods",
-            "product3": "Bumpers",
-            "product4": "Quatre Panels"
-        },
-        "img": "https://i.ibb.co/t3jMrqK/5.jpg"
+        "category_name": "Oil & lubricants",       
+        "img": "https://i.ibb.co/yBQ5Hvm/Oil-lubricants.png"
     },
     {
         "category_id": "06",
-        "title": "LIGHTING",
-        "products": {
-            "product1": "Headlight",
-           "product2": "Off-Road Light",
-            "product3": "Signal Light",
-            "product4": "Back Light"
-        },
-        "img": "https://i.ibb.co/q0PLn4t/6.jpg"
+        "category_name": "Tires & Wheels",
+        "img": "https://i.ibb.co/3ct17cN/Tires-Wheels.png"
+    },
+    {
+        "category_id": "07",
+        "category_name": "Steering",
+        "img": "https://i.ibb.co/GMGwGDD/Steering.png"
+    },
+    {
+        "category_id": "08",
+        "category_name": "Batteries",
+        "img": "https://i.ibb.co/QPSGLDW/Batterie.png"
     }
 ]

@@ -12,11 +12,11 @@ const Category = () => {
     }), [])
     return (
         <div>
-            <div className='text-center py-8 mt-4'>
+            <div className='text-center py-8 mt-10'>
                 <h1>Products Category</h1>
                 <h3 className='text-[#D90368]'> Our Best Categories</h3>
             </div>
-            <div className='grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='grid gap-7 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                 {
                     categories.map(category => (<CategoriesDetails key={category.category_id} category={category} />))
                 }

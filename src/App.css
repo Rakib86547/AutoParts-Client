@@ -48,3 +48,23 @@ ul.menu-list-box li {
 .btn{
   padding: 10px 40px!important;
 }
+.card{
+  border-radius: 0!important;
+  padding: 32px;
+}
+.category-box:hover .card-title{
+  color: #D90368;
+  transition: all .3s;
+}
+
+/* -------- PRODUCTS  SECTION CSS ------------- */
+
+.product-card{
+  padding: 0px!important;
+}
+
+.card:hover .product-button {
+  right: 2%;
+  visibility: visible;
+  transition: all .4s;
+}

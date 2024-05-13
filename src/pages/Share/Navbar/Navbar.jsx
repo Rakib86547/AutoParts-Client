@@ -10,7 +10,7 @@ import '../../../App.css';
 const Navbar = () => {
     return (
         <>
-            <div className='border-b border-[#ddd] laptop-menu'>
+            <div className='border-b border-[#D90368] laptop-menu sticky top-0 left-0 w-full bg-white z-10 '>
                 <div className='nav-parent-box flex items-center justify-between w-full py-[20px] parent-container'>
                     <div className='logo-box w-[130px] h-[46px]'>
                         <Link to='/'><img className='w-full h-full' src={logo} alt='Logo' /></Link>
