@@ -5,6 +5,9 @@ import Category from './Category/Category';
 import Products from './Products/Products';
 import Supports from './Supports/Supports';
 import WhyChoseMe from './WhyChoseMe/WhyChoseMe';
+import '../../App.css'
+import Features from './Features/Features';
+import Partner from './OurPartner/Partner';
 
 const Home = () => {
     return (
@@ -14,7 +17,11 @@ const Home = () => {
                 <Supports />
                 <Category />
                 <Products />
-                <WhyChoseMe />
+            </div>
+            <WhyChoseMe />
+            <div className='parent-container'>
+                <Partner />
+                <Features />                
             </div>
         </div>
     );

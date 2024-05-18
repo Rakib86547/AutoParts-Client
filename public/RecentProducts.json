@@ -1,0 +1,128 @@
+[
+    {
+        "product_id": "01",
+        "product_title": "Turtle Wax Car Care Kit",
+        "descriptions": "Revitalize your vehicle with the Turtle Wax Car Care Kit. This all-in-one package includes everything you need to keep your car looking pristine: high-quality car wash, wax, tire cleaner, and microfiber towels. Formulated to deliver a brilliant shine and long-lasting protection, our products make car care easy and effective. Perfect for all car enthusiasts, this kit ensures your vehicle always looks its best. Order now for a showroom finish!",
+        "img": "https://i.ibb.co/W0HSrNf/rp1.jpg",
+        "price": "$320",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "02",
+        "product_title": "Essential Detailing Kit – G19900",
+        "descriptions": "Introducing our Essential Detailing Kit – G19900, your ultimate companion for a showroom finish! This comprehensive set includes a premium microfiber cloth for streak-free shine, a gentle yet effective cleaning solution to tackle dirt and grime, and a versatile applicator pad for precise application. Perfect for car enthusiasts and detailing professionals alike, this kit ensures your vehicle gleams with brilliance every time. Elevate your detailing game with G19900!",
+        "img": "https://i.ibb.co/XbhB86s/rp2.jpg",
+        "price": "$280",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "03",
+        "product_title": "Monster EZ1-XL Floor Cleaning Machine Pad Kit",
+        "descriptions": "Introducing the Monster EZ1-XL Floor Cleaning Machine Pad Kit, your ultimate solution for spotless floors! Engineered for efficiency and durability, this kit includes high-quality pads designed to fit your Monster EZ1-XL machine seamlessly. Tackle tough stains and grime effortlessly, leaving your floors sparkling clean with every pass. Upgrade your cleaning game with this essential kit and enjoy pristine floors with minimal effort. Say goodbye to dirt and hello to brilliance!",
+        "img": "https://i.ibb.co/XtRsR1b/rp4.jpg",
+        "price": "$200",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "04",
+        "product_title": "JUMP-N-CARRY 12V JUMP STARTER 1700 PEAK AMPS",
+        "descriptions": "Jump-start your vehicle with ease using the Jump-N-Carry 12V Jump Starter, boasting a powerful 1700 peak amps. Compact yet mighty, this portable device is a lifesaver on the road, swiftly reviving dead batteries in cars, trucks, boats, and more. Equipped with safety features like reverse polarity protection, it's user-friendly and reliable. Don't let a drained battery leave you stranded – keep this essential tool in your vehicle for peace of mind on every journey.",
+        "img": "https://i.ibb.co/3znpmJN/rp5.jpg",
+        "price": "$398",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "05",
+        "product_title": "STANLEY 1000500 Amp Jump Starter w120 PSI Compressor (J5C09)",
+        "descriptions": "Never be stranded again with the Stanley 1000500 Amp Jump Starter w120 PSI Compressor (J5C09). This powerful device ensures you're always prepared for roadside emergencies. With 1000 peak battery amps, it jump-starts your vehicle in minutes. The built-in 120 PSI compressor inflates tires on the go. Compact and portable, it's your ultimate travel companion. Trust Stanley for reliability and convenience wherever the road takes you.",
+        "img": "https://i.ibb.co/D8PWB1W/rp6.jpg",
+        "price": "$470",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "06",
+        "product_title": "Cam Camshaft Tappets DK Engine Parts",
+        "descriptions": "Upgrade your engine performance with our premium Car Cam Camshaft Tappets. Designed for DK engines, these high-quality parts ensure smooth operation and enhanced durability. Crafted from robust materials, they provide excellent resistance to wear and tear. Perfect for maintaining optimal engine function, our tappets guarantee improved fuel efficiency and reduced noise. Elevate your driving experience with our reliable and efficient camshaft tappets.",
+        "img": "https://i.ibb.co/mzKsKmM/fp6.jpg",
+        "price": "$287",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "07",
+        "product_title": "Ultra Performance 2 Gauge 20′ Jumper Cable",
+        "descriptions": "The Ultra Performance 2 Gauge 20′ Jumper Cable ensures reliable, powerful connections for any roadside emergency. Designed for maximum conductivity, these heavy-duty cables feature all-weather insulation and robust clamps, providing safe and efficient battery boosts. Ideal for cars, trucks, and SUVs, their 20-foot length offers flexibility and ease of use. Equip your vehicle with this essential, durable jumper cable for peace of mind on every journey.",
+        "img": "https://i.ibb.co/xhz3Hms/fp7.jpg",
+        "price": "$150",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "08",
+        "product_title": "Auto Battery Jumper with Quick-charge, Booster",
+        "descriptions": "Revive your vehicle instantly with our Auto Battery Jumper with Quick-charge. Designed for convenience, this powerful device jump-starts your car in seconds. Equipped with a 10,000mAh battery and smart protection, it ensures safety and reliability. The quick-charge feature powers your devices on the go, making it perfect for emergencies. Compact and easy to use, it's an essential addition to every driver's toolkit. Get yours today!",
+        "img": "https://i.ibb.co/4VRxkBx/rp7.jpg",
+        "price": "$120",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "09",
+        "product_title": "Ice Liquid Wax Kit with Microfiber Towel and Applicator",
+        "descriptions": "Revitalize your car's shine with our Ice Liquid Wax Kit. This all-in-one kit includes premium Ice Liquid Wax, a high-quality microfiber towel, and a convenient applicator. Achieve a stunning, mirror-like finish while protecting your vehicle's paint from harsh elements. Easy to apply and perfect for all car types, this kit ensures long-lasting brilliance and superior protection. Make your car gleam with professional-grade results!",
+        "img": "https://i.ibb.co/XScGpPN/fp9.jpg",
+        "price": "$350",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    }
+]

@@ -1,0 +1,129 @@
+[
+    {
+        "product_id": "01",
+        "product_title": "For 2006-2016 Chevy Impala Black Housing Amber Corner Bumper Headlights",
+        "descriptions": "Illuminate your drive with our premium car headlights. Engineered for superior brightness and clarity, these headlights enhance visibility and safety in all conditions. Easy to install, they offer long-lasting performance and energy efficiency. Upgrade your vehicle with our cutting-edge LED or halogen options, designed to fit a wide range of models. Drive confidently with our top-quality car headlights, ensuring clear vision on every journey.",
+        "img": "https://i.ibb.co/2h7tvP2/fp1.jpg",
+        "price": "$320",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+   
+    {
+        "product_id": "02",
+        "product_title": "For 2006-2016 Chevy Impala Black Housing Amber Corner Bumper Headlights",
+        "descriptions": "Illuminate your drive with our premium car headlights. Engineered for superior brightness and clarity, these headlights enhance visibility and safety in all conditions. Easy to install, they offer long-lasting performance and energy efficiency. Upgrade your vehicle with our cutting-edge LED or halogen options, designed to fit a wide range of models. Drive confidently with our top-quality car headlights, ensuring clear vision on every journey.",
+        "img": "https://i.ibb.co/YbB5F9j/fp2.jpg",
+        "price": "$280",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "03",
+        "product_title": "SAE 5W-20 Motor Oil – Easy Pour 5 Quart",
+        "descriptions": "Experience superior engine protection with our Premium Synthetic Motor Oil. Engineered for maximum performance, it reduces wear, resists thermal breakdown, and ensures smooth operation in extreme temperatures. Ideal for both high-performance and everyday vehicles, our motor oil enhances fuel efficiency and prolongs engine life. Upgrade your vehicle's maintenance routine with our top-tier motor oil for unmatched reliability and durability. Drive with confidence, drive with excellence.",
+        "img": "https://i.ibb.co/bPn1hzW/fp3.jpg",
+        "price": "$200",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "04",
+        "product_title": "Front Bumper Driving Fog LightLamps Amber Lens",
+        "descriptions": "Illuminate your drive with our premium car front bumper lights. Engineered for superior brightness and durability, these lights ensure optimal visibility in all conditions. Easy to install and compatible with most car models, they enhance safety and add a sleek, modern look to your vehicle. Crafted from high-quality materials, our bumper lights are built to last, making them a smart investment for any car enthusiast.",
+        "img": "https://i.ibb.co/sqCdTVL/fp4.jpg",
+        "price": "$398",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "05",
+        "product_title": "4Door Black Halo LED Projector Eye LId Headlights",
+        "descriptions": "Enhance your vehicle's style and visibility with our 4-Door Black Halo LED Projector Eye Lid Headlights. These sleek, black housing headlights feature advanced LED technology, providing a brighter and more focused beam. The halo rings add a distinctive, modern look, ensuring you stand out on the road. Easy to install, they offer a perfect fit for a sophisticated upgrade to your car's front end.",
+        "img": "https://i.ibb.co/rGXQXRf/fp5.jpg",
+        "price": "$470",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "06",
+        "product_title": "Cam Camshaft Tappets DK Engine Parts",
+        "descriptions": "Upgrade your engine performance with our premium Car Cam Camshaft Tappets. Designed for DK engines, these high-quality parts ensure smooth operation and enhanced durability. Crafted from robust materials, they provide excellent resistance to wear and tear. Perfect for maintaining optimal engine function, our tappets guarantee improved fuel efficiency and reduced noise. Elevate your driving experience with our reliable and efficient camshaft tappets.",
+        "img": "https://i.ibb.co/mzKsKmM/fp6.jpg",
+        "price": "$287",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "07",
+        "product_title": "Ultra Performance 2 Gauge 20′ Jumper Cable",
+        "descriptions": "The Ultra Performance 2 Gauge 20′ Jumper Cable ensures reliable, powerful connections for any roadside emergency. Designed for maximum conductivity, these heavy-duty cables feature all-weather insulation and robust clamps, providing safe and efficient battery boosts. Ideal for cars, trucks, and SUVs, their 20-foot length offers flexibility and ease of use. Equip your vehicle with this essential, durable jumper cable for peace of mind on every journey.",
+        "img": "https://i.ibb.co/xhz3Hms/fp7.jpg",
+        "price": "$150",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "08",
+        "product_title": "Auto Battery Jumper with Quick-charge, Booster",
+        "descriptions": "Revive your vehicle instantly with our Auto Battery Jumper with Quick-charge. Designed for convenience, this powerful device jump-starts your car in seconds. Equipped with a 10,000mAh battery and smart protection, it ensures safety and reliability. The quick-charge feature powers your devices on the go, making it perfect for emergencies. Compact and easy to use, it's an essential addition to every driver's toolkit. Get yours today!",
+        "img": "https://i.ibb.co/4VRxkBx/rp7.jpg",
+        "price": "$120",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    },
+    {
+        "product_id": "09",
+        "product_title": "Ice Liquid Wax Kit with Microfiber Towel and Applicator",
+        "descriptions": "Revitalize your car's shine with our Ice Liquid Wax Kit. This all-in-one kit includes premium Ice Liquid Wax, a high-quality microfiber towel, and a convenient applicator. Achieve a stunning, mirror-like finish while protecting your vehicle's paint from harsh elements. Easy to apply and perfect for all car types, this kit ensures long-lasting brilliance and superior protection. Make your car gleam with professional-grade results!",
+        "img": "https://i.ibb.co/XScGpPN/fp9.jpg",
+        "price": "$350",
+        "additional_info": [
+            {
+                "brand": "abc",
+                "mode": "abc154"
+            }
+        ],
+        "review": "4"
+    }
+]
