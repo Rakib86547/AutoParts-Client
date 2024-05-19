@@ -24,9 +24,9 @@ const RecentProductsDetails = ({ products }) => {
                         <button className=' flex items-center justify-center m-auto text-[#D90368] py-2 px-[52px] hover:text-[#191613] rounded-[30px] font-semibold  duration-300'>Add To Cart <BsCart4 className='ml-2' /></button>
                     </div>
                     {/* --- hid section --- */}
-                    <div className='product-button flex justify-evenly flex-col  absolute top-[35px] right-[-100%] duration-300 h-[100px] mb-5'>
-                        <button className='text-[20px] bg-[#ddd] p-2 rounded-[30px] hover:bg-[#D90368] hover:text-white duration-300' title='Wishlist'><IoMdHeartEmpty /></button>
-                        <button className='text-[20px] bg-[#ddd] p-2 rounded-[30px] hover:bg-[#D90368] hover:text-white duration-300' title='Quick View'><PiEyeLight /></button>
+                    <div className='product-button absolute translate-x-[-100%] top-2 duration-300 h-[100px] mb-5'>
+                        <button className='text-[20px] bg-[#ddd] p-2 rounded-[30px] hover:bg-[#D90368] hover:text-white duration-300' title='Wishlist'><IoMdHeartEmpty /></button> <br />
+                        <button className='text-[20px] bg-[#ddd] p-2 rounded-[30px] hover:bg-[#D90368] hover:text-white duration-300 mt-2' title='Quick View'><PiEyeLight /></button>
                     </div>
                 </div>
             </div>

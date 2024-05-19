@@ -51,19 +51,19 @@ const HomeSlider = () => {
     const sliderContent = [
         {
             img: banner1,
-            title: 'This is heading title1',
+            title: 'Welcome to Our AutoParts Shop',
             description: 'Feugiat tristique parturient sapien senectus per tortor suspendisse sem at scelerisque, curae id mattis curabitur varius magna integer quam tempus, cum nec bibendum hac euismod faucibus fermentum tempor odio. Venenatis congue diam turpis velit rutrum quam, justo euismod ultricies ante habitasse, ad arcu quis felis et. Neque ante dictum donec sociosqu pellentesque massa facilisis hac lectus, nunc pretium eget',
             btn: 'Shop Now'
         },
         {
             img: banner2,
-            title: 'This is heading title2',
+            title: 'READY FOR OF ROAD 18% OFF',
             description: 'Feugiat tristique parturient sapien senectus per tortor suspendisse sem at scelerisque, curae id mattis curabitur varius magna integer quam tempus, cum nec bibendum hac euismod faucibus fermentum tempor odio. Venenatis congue diam turpis velit rutrum quam, justo euismod ultricies ante habitasse, ad arcu quis felis et. Neque ante dictum donec sociosqu pellentesque massa facilisis hac lectus, nunc pretium eget',
             btn: 'Shop Now'
         },
         {
             img: banner3,
-            title: 'This is heading title3',
+            title: 'TAKE CARE OF YOUR TIERS',
             description: 'Feugiat tristique parturient sapien senectus per tortor suspendisse sem at scelerisque, curae id mattis curabitur varius magna integer quam tempus, cum nec bibendum hac euismod faucibus fermentum tempor odio. Venenatis congue diam turpis velit rutrum quam, justo euismod ultricies ante habitasse, ad arcu quis felis et. Neque ante dictum donec sociosqu pellentesque massa facilisis hac lectus, nunc pretium eget',
             btn: 'Shop Now'
         },

@@ -68,11 +68,11 @@ ul.menu-list-box li {
 .product-card {
   padding: 0px !important;
 }
-
-.card:hover .product-button {
-  right: 2%;
-  visibility: visible;
+.product-button button {
   transition: all .4s;
+}
+.card:hover .product-button {
+  transform: translateX(10px);
 }
 
 /* ---------- FEATURE AND RECENT PRODUCTS CSS -------- */
@@ -89,4 +89,10 @@ ul.menu-list-box li {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+.icon-box a {
+  transition: all .4s;
+}
+.icon-box a:hover{
+  transform: translateY(-8px);;
 }
