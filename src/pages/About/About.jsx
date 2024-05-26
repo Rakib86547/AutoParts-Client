@@ -9,6 +9,7 @@ import { FaFacebook, FaSkype } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import CountUp from 'react-countup';
 import '../../App.css';
 
 const About = () => {
@@ -42,19 +43,19 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className='team-container mt-10'>
+                    <div className='team-container mt-10 max-[1280px]:px-5'>
                         <div>
                             <h1>AutoParts Team</h1>
                             <h3>Meet the Professionals</h3>
                         </div>
                         <div className='grid gap-5 md:grid-cols-2 lg:grid-cols-4 sm:grid-cols-2 mt-9 pb-10'>
-                            <div className='bg-slate-200 rounded box-container duration-300 relative'>
+                            <div className='bg-slate-200 rounded box-container duration-300 relative overflow-hidden'>
                                 <div className='relative'>
-                                    <figure><img className='object-cover rounded-t-md rounded-tr-md team-img' src={team1} alt='about us' /></figure>
+                                    <figure><img className='object-cover rounded-t-md rounded-tr-md team-img w-full' src={team1} alt='about us' /></figure>
                                     <div className="overlay"></div>
                                 </div>
 
-                                <div className='team-social-icon-box flex m-auto absolute justify-evenly text-[16px] w-[200px] left-0 right-0 duration-500 translate-y-[-100%]'>
+                                <div className='team-social-icon-box flex m-auto absolute translate-x-[-125%] top-[50%] justify-evenly text-[16px] w-[200px] left-0 right-0 duration-500 '>
                                     <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaFacebook className='de' /></a>
                                     <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaInstagram /></a>
                                     <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaLinkedin /></a>
@@ -67,29 +68,103 @@ const About = () => {
                                 </div>
 
                             </div>
+                            <div className='bg-slate-200 rounded box-container duration-300 relative overflow-hidden'>
+                                <div className='relative'>
+                                    <figure><img className='object-cover rounded-t-md rounded-tr-md team-img w-full' src={team2} alt='about us' /></figure>
+                                    <div className="overlay"></div>
+                                </div>
 
-                            <div>
-                                <figure><img src={team2} alt='about us' /></figure>
-                                <div>
-                                    <h2>Albert Yearn</h2>
-                                    <h3>CEO & Founder</h3>
+                                <div className='team-social-icon-box flex m-auto absolute translate-x-[-125%] top-[50%] justify-evenly text-[16px] w-[200px] left-0 right-0 duration-500 '>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaFacebook className='de' /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaInstagram /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaLinkedin /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaXTwitter /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaSkype /></a>
                                 </div>
+                                <div className='py-5'>
+                                    <h2 className='text-[20px] font-bold text-[#D90368]'>Benzamin Luice</h2>
+                                    <h3 className='text-[16px]'>Sales Manger</h3>
+                                </div>
+
                             </div>
-                            <div>
-                                <figure><img src={team3} alt='about us' /></figure>
-                                <div>
-                                    <h2>Albert Yearn</h2>
-                                    <h3>CEO & Founder</h3>
+                            <div className='bg-slate-200 rounded box-container duration-300 relative overflow-hidden'>
+                                <div className='relative'>
+                                    <figure><img className='object-cover rounded-t-md rounded-tr-md team-img w-full' src={team3} alt='about us' /></figure>
+                                    <div className="overlay"></div>
                                 </div>
+
+                                <div className='team-social-icon-box flex m-auto absolute translate-x-[-125%] top-[50%] justify-evenly text-[16px] w-[200px] left-0 right-0 duration-500 '>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaFacebook className='de' /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaInstagram /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaLinkedin /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaXTwitter /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaSkype /></a>
+                                </div>
+                                <div className='py-5'>
+                                    <h2 className='text-[20px] font-bold text-[#D90368]'>Declan Barnett</h2>
+                                    <h3 className='text-[16px]'>Finance Executive</h3>
+                                </div>
+
                             </div>
-                            <div>
-                                <figure><img src={team4} alt='about us' /></figure>
-                                <div>
-                                    <h2>Albert Yearn</h2>
-                                    <h3>CEO & Founder</h3>
+                            <div className='bg-slate-200 rounded box-container duration-300 relative overflow-hidden'>
+                                <div className='relative'>
+                                    <figure><img className='object-cover rounded-t-md rounded-tr-md team-img w-full' src={team4} alt='about us' /></figure>
+                                    <div className="overlay"></div>
                                 </div>
+
+                                <div className='team-social-icon-box flex m-auto absolute translate-x-[-125%] top-[50%] justify-evenly text-[16px] w-[200px] left-0 right-0 duration-500 '>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaFacebook className='de' /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaInstagram /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaLinkedin /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaXTwitter /></a>
+                                    <a href='#' className='p-[6px] bg-[#1F2937] text-white hover:bg-[#D90368] duration-500 rounded-full'><FaSkype /></a>
+                                </div>
+                                <div className='py-5'>
+                                    <h2 className='text-[20px] font-bold text-[#D90368]'>Mollie Bishop</h2>
+                                    <h3 className='text-[16px]'>Manager & Admin</h3>
+                                </div>
+
                             </div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className='bg-slate-200 py-10 my-[80px] max-[1024px]:hidden'>
+                <div className='parent-container'>
+                    <div className='grid gap-5 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1'>
+                        <div>
+                            <CountUp
+                                end={500}
+                                suffix='K'
+                                className='text-[50px] font-semibold text-[#D90368]'
+                            />
+                            <h4 className='text-[18px] font-semibold'>Items Sold</h4>
+                        </div>
+                        <div>
+                            <CountUp
+                                end={15}
+                                suffix='%'
+                                className='text-[50px] font-semibold text-[#D90368]'
+                            />
+                            <h4 className='text-[18px] font-semibold'>Market increase</h4>
+                        </div>
+                        <div>
+                            <CountUp
+                                end={100}
+                                suffix='+'
+                                className='text-[50px] font-semibold text-[#D90368]'
+                            />
+                            <h4 className='text-[18px] font-semibold'>New employees</h4>
+                        </div>
+                        <div>
+                            <CountUp
+                                end={400}
+                                suffix=''
+                                className='text-[50px] font-semibold text-[#D90368]'
+                            />
+                            <h4 className='text-[18px] font-semibold'>Brands</h4>
                         </div>
                     </div>
                 </div>
