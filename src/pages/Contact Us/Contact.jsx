@@ -7,6 +7,11 @@ import GoogleMapReact from 'google-map-react';
 import { useForm } from "react-hook-form"
 import '../../App.css'
 import { toast } from 'react-hot-toast';
+import { FaPhone, FaRegEnvelopeOpen } from 'react-icons/fa';
+import facebook from '../../assets/Facebook.png';
+import linkedin from '../../assets/Linkedin.png';
+import instagram from '../../assets/Instagram.png';
+import { RxDoubleArrowRight } from "react-icons/rx";
 
 const Contact = () => {
     const [loading, setLoading] = useState(true)
@@ -27,7 +32,7 @@ const Contact = () => {
 
     const handleFormSubmit = (data) => {
         setLoading(false)
-        if(loading === false){
+        if (loading === false) {
             toast.success('Thank You For Your Message!');
             reset()
         }
@@ -119,6 +124,47 @@ const Contact = () => {
                                     </form>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className='grid gap-5 lg:grid-cols-3 pb-[80px] max-[1024px]:grid-cols-3 max-[768px]:grid-cols-2 max-[425px]:grid-cols-1 '>
+                <div className='flex flex-col items-center'>
+                    <h1 className='text-[25px]'>Head Office</h1>
+                    <div className='mt-5'>
+                        <span className='flex items-center'><RxDoubleArrowRight className='mr-2 text-[#D90368]' />1987 Davis Lane Englewood</span>
+                        <span className='flex items-center'><RxDoubleArrowRight className='mr-2 text-[#D90368]' />516-582-7348</span>
+                        <span className='flex items-center'><RxDoubleArrowRight className='mr-2 text-[#D90368]' />inbox@autoparts.uk</span>
+                    </div>
+                </div>
+
+                <div className='flex flex-col items-center'>
+                    <h1 className='text-[25px]'>Branch Office</h1>
+                    <div className=' flex-col mt-5'>
+                        <span className='flex items-center'><RxDoubleArrowRight className='mr-2 text-[#D90368]' />675 Burning Memory Lane</span>
+                        <span className='flex items-center'><RxDoubleArrowRight className='mr-2 text-[#D90368]' />516-582-7348</span>
+                        <span className='flex items-center'><RxDoubleArrowRight className='mr-2 text-[#D90368]' />inbox@autoparts.uk</span>
+                    </div>
+                </div>
+
+                <div className='flex flex-col items-center'>
+                <h1 className='text-[25px]'>Social Links</h1>
+                    <div className='flex flex-col gap-5 mt-[30px]'>
+                        <div className='flex flex-col gap-3'>
+                            <div className='flex items-center'>
+                                <span className="email_icon text-[25px]"><FaRegEnvelopeOpen className='text-[#D90368]' /></span>
+                                <span className='email ml-3 text-[17px] font-semibold'>rakibb8040@gmail.com</span>
+                            </div>
+                            <div className='flex items-center'>
+                                <span className="phone_icon text-[25px] text-[#D90368]"><FaPhone /></span>
+                                <span className='phone ml-3 text-[17px] font-semibold'>07-455-5148</span>
+                            </div>
+                        </div>
+                        <div className='icon-box flex items-center text-[25px] justify-between w-[120px]'>
+                            <a href='#'><img src={facebook} /></a>
+                            <a href='#' className='mx-3'><img src={instagram} /></a>
+                            <a href='#'><img src={linkedin} /></a>
                         </div>
                     </div>
                 </div>
