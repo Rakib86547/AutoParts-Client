@@ -122,3 +122,24 @@ ul.menu-list-box li {
   top: 50%;
 } 
 
+/* ------------- CONTACT SECTION CSS STYLE ---------- */
+.hero-content{
+  width: 100% !important;
+  max-width: 100%;
+  padding: 0px !important;
+}
+.textarea-error {
+  border-color: #ddd !important;
+}
+.card-body{
+  padding: 0px !important;
+}
+
+.contact-border:focus, .contact-border:focus-within .textarea-error:focus, .textarea-error:focus-within {
+  box-shadow: none !important;
+  border-color: #D90368 !important;
+  outline-style: solid !important;
+  outline-width: 0px !important;
+  outline-offset: 0px !important;
+  outline-color: var(--fallback-bc,oklch(var(--bc)/0.2));
+}
