@@ -6,6 +6,7 @@ import Error from "../../Share/Error/Error";
 import Home from '../../Home/Home';
 import About from '../../About/About';
 import Contact from '../../Contact Us/Contact';
+import FAQ from '../../FAQ/FAQ';
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact />
+            },
+            {
+                path: '/faq',
+                element: <FAQ />
             }
         ]
     }

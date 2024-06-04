@@ -143,3 +143,9 @@ ul.menu-list-box li {
   outline-offset: 0px !important;
   outline-color: var(--fallback-bc,oklch(var(--bc)/0.2));
 }
+
+
+/* -------- FAQ -------- */
+.collapse:not(.collapse-open):not(.collapse-close) > input[type="checkbox"], .collapse:not(.collapse-open):not(.collapse-close) > input[type="radio"]:not(:checked), .collapse:not(.collapse-open):not(.collapse-close) > .collapse-title{
+  background-color: #ddd;
+}

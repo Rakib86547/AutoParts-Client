@@ -24,10 +24,10 @@ const Navbar = () => {
                             </span>
 
                             <li><Link>Home</Link></li>
-                            <li><Link>Blogs</Link></li>
+                            <li><Link to='/faq'>FAQ</Link></li>
                             <li><Link to='/about'>About</Link></li>
                             <li><Link to='/contact'>Contact</Link></li>
-                            <li><Link>Products</Link></li>
+                            <li><Link>Shops</Link></li>
                         </ul>
                         <div className='icon-box flex w-[75px] ml-[20px] items-center justify-between'>
                             <Link><li className=''><BsCartPlus className='user text-[25px]' /></li></Link>
