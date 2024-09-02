@@ -7,6 +7,8 @@ import Home from '../../Home/Home';
 import About from '../../About/About';
 import Contact from '../../Contact Us/Contact';
 import FAQ from '../../FAQ/FAQ';
+import Login from '../../Login/Login';
+import SignUp from '../../Signup/SignUp';
 
 const router = createBrowserRouter([
     {
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
             {
                 path: '/faq',
                 element: <FAQ />
+            },
+            {
+                path: '/login',
+                element: <Login />
+            },
+            {
+                path: '/signup',
+                element: <SignUp />
             }
         ]
     }

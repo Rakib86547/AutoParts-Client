@@ -31,7 +31,7 @@ const Navbar = () => {
                         </ul>
                         <div className='icon-box flex w-[75px] ml-[20px] items-center justify-between'>
                             <Link><li className=''><BsCartPlus className='user text-[25px]' /></li></Link>
-                            <Link><li><FaRegUserCircle className='text-[25px]' /></li></Link>
+                            <Link to='/login' className="tooltip tooltip-bottom" data-tip="Login"><li><FaRegUserCircle className='text-[25px]' /></li></Link>
                         </div>
                     </div>
                 </div>
