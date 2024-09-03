@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
@@ -5,19 +6,38 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/logo2.png';
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { FaRegEye } from "react-icons/fa6";
-
+import { useForm } from "react-hook-form";
+import { useDispatch } from 'react-redux';
+import { createUser } from '../../redux/features/users/userSlice';
 
 const SignUp = () => {
+    const { register, handleSubmit, watch, formState: { errors }, } = useForm();
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const dispatch = useDispatch()
 
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
     };
 
-    const handleShowConfirmPassword = () => { 
+    const handleShowConfirmPassword = () => {
         setShowConfirmPassword(!showConfirmPassword)
-     };
+    };
+
+    const handleSignup = (data) => {
+        const image = data?.file[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const userInfo = {
+            name: data?.name,
+            email: data?.email,
+            // image: formData,
+            image: image?.name,
+            password: data?.password,
+            confirmPassword: data?.confirmPassword
+        };
+        dispatch(createUser({ email: data?.email, password: data?.password, name: userInfo?.name, image: userInfo?.image }))
+    }
 
     return (
         <div className='parent-container'>
@@ -28,30 +48,63 @@ const SignUp = () => {
                             <h2 className="mt-3 text-[35px] font-medium text-center text-gray-600 dark:text-gray-200">Welcome to</h2>
                             <img className="w-auto h-7 sm:h-8 mt-2" src={logo} alt="" />
                         </div>
-
-
-
                         <p className="mt-1 text-center text-[20px] text-gray-500 dark:text-gray-400">Create your account</p>
 
-                        <form>
+                        <form onSubmit={handleSubmit(handleSignup)}>
                             <div className="w-full mt-4">
-                                <input className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368]  focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]" type="name" placeholder="Your Name" aria-label="Email Address" />
+                                <input
+                                    className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368]  focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]"
+                                    type="name"
+                                    placeholder="Your Name"
+                                    aria-label="Name"
+                                    {...register("name")}
+                                />
                             </div>
+
+
                             <div className="w-full mt-4">
-                                <input className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368]  focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]" type="email" placeholder="Email Address" aria-label="Email Address" />
+                                <input
+                                    className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368]  focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]"
+                                    type="email"
+                                    placeholder="Email Address"
+                                    aria-label="Email Address"
+                                    {...register("email")}
+                                />
                             </div>
+
+
                             <div className="w-full mt-4">
-                                <input className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368]  focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]" type="file" placeholder="Your Image" aria-label="Email Address" />
+                                <input
+                                    className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368]  focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]"
+                                    type="file"
+                                    placeholder="Your Image"
+                                    aria-label="Email Address"
+                                    {...register("file")}
+                                />
                             </div>
+
 
                             <div className="w-full mt-4 flex items-center relative">
 
-                                <input className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]" type={showPassword ? "text" : "password"} placeholder="Password" aria-label="Password" />
+                                <input
+                                    className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]"
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder="Password"
+                                    aria-label="Password"
+                                    {...register("password")}
+                                />
                                 <span onClick={handleShowPassword} className='cursor-pointer absolute right-[20px] mt-2'> {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</span>
                             </div>
 
+
                             <div className="w-full mt-4 flex items-center relative">
-                                <input className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]" type={showConfirmPassword ? "text" : "password"} placeholder="Confirm Password" aria-label="Password" />
+                                <input
+                                    className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]"
+                                    type={showConfirmPassword ? "text" : "password"}
+                                    placeholder="Confirm Password"
+                                    aria-label="Confirm Password"
+                                    {...register("confirmPassword")}
+                                />
                                 <span onClick={handleShowConfirmPassword} className='cursor-pointer absolute right-[20px] mt-2'> {showConfirmPassword ? <FaRegEye /> : <FaRegEyeSlash />}</span>
                             </div>
 

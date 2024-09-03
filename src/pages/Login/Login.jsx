@@ -3,8 +3,25 @@
 import React from 'react';
 import logo from '../../assets/logo2.png'
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { googleSignIn, signInUser } from '../../redux/features/users/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const Login = () => {
+    const { register, handleSubmit, watch, formState: { errors }, } = useForm();
+    const dispatch = useDispatch();
+
+    const handleLogIn = (data) => {
+        const email = data?.email;
+        const password = data?.password;
+        dispatch(signInUser({ email, password }));
+    };
+
+    const handleGoogleSignIn = () => {
+        dispatch(googleSignIn());
+    };
+    
     return (
         <div className='parent-container'>
             <div className='py-[100px]'>
@@ -17,22 +34,27 @@ const Login = () => {
 
                         <p className="mt-1 text-center text-[20px] text-gray-500 dark:text-gray-400">Login your account</p>
 
-                        <form>
+                        <form onSubmit={handleSubmit(handleLogIn)}>
                             <div className="w-full mt-4">
-                                <input className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368]  focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]" type="email" placeholder="Email Address" aria-label="Email Address" />
+                                <input
+                                    className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368]  focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]"
+                                    type="email"
+                                    placeholder="Email Address"
+                                    aria-label="Email Address"
+                                    {...register("email")}
+                                />
                             </div>
 
                             <div className="w-full mt-4">
-                                <input className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]" type="password" placeholder="Password" aria-label="Password" />
+                                <input
+                                    className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]"
+                                    type="password"
+                                    placeholder="Password"
+                                    aria-label="Password"
+                                    {...register("password")}
+                                />
                             </div>
 
-                            {/* <div className="flex items-center justify-between mt-4">
-                                <a href="#" className="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500">Forget Password?</a>
-
-                                <button className="px-6 py-2 text-sm font-medium tracking-wide capitalize transition-colors transform rounded-lg focus:outline-none  focus:ring-[#D90368] bg-[#D90368] text-white hover:bg-[#191613] duration-300">
-                                    Sign In
-                                </button>
-                            </div> */}
                             <div className="mt-6">
                                 <button className="w-full px-6 py-2.5 text-sm font-medium tracking-wide  capitalize transition-colors  transform  rounded-lg focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50 bg-[#D90368] text-white hover:bg-[#191613] duration-300">
                                     Sign In
@@ -43,7 +65,7 @@ const Login = () => {
 
                     <p className="mt-4 text-center text-gray-600 dark:text-gray-400">or sign in with</p>
 
-                    <a href="#" className="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <a onClick={handleGoogleSignIn} href="#" className="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <svg className="w-6 h-6 mx-2" viewBox="0 0 40 40">
                             <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#FFC107" />
                             <path d="M5.25497 12.2425L10.7308 16.2583C12.2125 12.59 15.8008 9.99999 20 9.99999C22.5491 9.99999 24.8683 10.9617 26.6341 12.5325L31.3483 7.81833C28.3716 5.04416 24.39 3.33333 20 3.33333C13.5983 3.33333 8.04663 6.94749 5.25497 12.2425Z" fill="#FF3D00" />
