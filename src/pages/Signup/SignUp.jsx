@@ -1,21 +1,27 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo2.png';
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { FaRegEye } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from '../../redux/features/users/userSlice';
+// import { createUser } from '../../redux/features/users/userSlice';
 
 const SignUp = () => {
     const { register, handleSubmit, watch, formState: { errors }, } = useForm();
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const dispatch = useDispatch()
-
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [message, setMessage] = useState('')
+    const [isMatch, setIsMatch] = useState(true);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const data = useSelector((state) => state.user);
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
     };
@@ -24,7 +30,22 @@ const SignUp = () => {
         setShowConfirmPassword(!showConfirmPassword)
     };
 
+    useEffect(() => {
+        if (password !== confirmPassword) {
+            setIsMatch(false)
+        } else {
+            setIsMatch(true)
+        }
+    }, [password, confirmPassword]);
+
+
     const handleSignup = (data) => {
+        if (!isMatch) {
+            setMessage('password did not match');
+            return;
+        } else {
+            setMessage(' ')
+        }
         const image = data?.file[0];
         const formData = new FormData();
         formData.append('image', image);
@@ -36,8 +57,12 @@ const SignUp = () => {
             password: data?.password,
             confirmPassword: data?.confirmPassword
         };
-        dispatch(createUser({ email: data?.email, password: data?.password, name: userInfo?.name, image: userInfo?.image }))
+        // dispatch(createUser({ email: data?.email, password: data?.password, name: userInfo?.name, image: userInfo?.image }))
+        dispatch(createUser(userInfo))
+        navigate('/')
     }
+
+    
 
     return (
         <div className='parent-container'>
@@ -87,11 +112,13 @@ const SignUp = () => {
                             <div className="w-full mt-4 flex items-center relative">
 
                                 <input
+                                    name='password'
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]"
                                     type={showPassword ? "text" : "password"}
                                     placeholder="Password"
                                     aria-label="Password"
                                     {...register("password")}
+                                    onChange={(e) => (setPassword(e.target.value))}
                                 />
                                 <span onClick={handleShowPassword} className='cursor-pointer absolute right-[20px] mt-2'> {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</span>
                             </div>
@@ -99,15 +126,20 @@ const SignUp = () => {
 
                             <div className="w-full mt-4 flex items-center relative">
                                 <input
+                                    name='confirmPassword'
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]"
                                     type={showConfirmPassword ? "text" : "password"}
                                     placeholder="Confirm Password"
                                     aria-label="Confirm Password"
                                     {...register("confirmPassword")}
+                                    onChange={(e) => (setConfirmPassword(e.target.value))}
                                 />
                                 <span onClick={handleShowConfirmPassword} className='cursor-pointer absolute right-[20px] mt-2'> {showConfirmPassword ? <FaRegEye /> : <FaRegEyeSlash />}</span>
+                                <span>{ }</span>
                             </div>
-
+                            <div className='relative pb-2 pt-1'>
+                                <span className='text-red-500 left-0 absolute'>{isMatch ? '' : message}</span>
+                            </div>
                             <div className="mt-6">
                                 <button className="w-full px-6 py-2.5 text-sm font-medium tracking-wide  capitalize transition-colors  transform  rounded-lg focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50 bg-[#D90368] text-white hover:bg-[#191613] duration-300">
                                     Sign Up

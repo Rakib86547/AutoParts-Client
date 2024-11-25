@@ -1,16 +1,17 @@
 /* eslint-disable no-empty-pattern */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import auth from "../../../pages/firebase/firebase.config";
 
 
 
 const initialState = {
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    image: '',
+    // name: '',
+    // email: '',
+    // password: '',
+    // confirmPassword: '',
+    // image: '',
+    user: {},
     isLoading: true,
     isError: false,
     error: '',
@@ -19,14 +20,14 @@ const initialState = {
 
 
 // ------------ SIGNUP/REGISTER USERS -----------
-export const createUser = createAsyncThunk('user/createUser', async ({ email, password, name, image }) => {
-    const data = await createUserWithEmailAndPassword(auth, email, password);
-    const updateUserProfile = await updateProfile(auth.currentUser, {
-        displayName: name,
-        photoURL: image
-    });
-    return { data, updateUserProfile }
-});
+// export const createUser = createAsyncThunk('user/createUser', async ({ email, password, name, image }) => {
+//     const data = await createUserWithEmailAndPassword(auth, email, password);
+//     const updateUserProfile = await updateProfile(auth.currentUser, {
+//         displayName: name,
+//         photoURL: image
+//     });
+//     return { data, updateUserProfile }
+// });
 
 
 // ------------- SIGN IN USERS ----------
@@ -45,29 +46,46 @@ export const googleSignIn = createAsyncThunk('user/googleSignIn', async () => {
 const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    reducers: {
+        createUser: (state, action) => {
+            console.log('data of action from userSlice =', action)
+            state.user = action.payload
+            if (action.payload.email) {
+                console.log('email of payload =', action.payload.email)
+                state.isLoading = false
+                console.log('toggle false =', false);
+            } else {
+                console.log('toggle true =', true)
+                state.isLoading = true
+            }
+        },
+        setUser: (state, action) => {
+            console.log('set user from =', action.payload)
+            state.user = action.payload;
+        }
+    },
     extraReducers: (builder) => {
         builder
             // -------- SIGNUP/REGISTER USERS ------
-            .addCase(createUser.pending, (state) => {
-                state.isLoading = true;
-                state.isError = false;
-            })
-            .addCase(createUser.fulfilled, (state, { payload }) => {
-                state.name = payload?.data?.user?.displayName;
-                state.email = payload?.data?.user?.email;
-                state.password = payload?.data?.user?.password;
-                state.image = payload?.data?.user?.photoURL;
-                state.isLoading = false;
-                state.isError = false;
-                state.status = 'success'
-            })
-            .addCase(createUser.rejected, (state, action) => {
-                state.isLoading = false;
-                state.isError = true;
-                state.error = action.error.message;
-                state.status = 'failed';
-            })
+            // .addCase(createUser.pending, (state) => {
+            //     state.isLoading = true;
+            //     state.isError = false;
+            // })
+            // .addCase(createUser.fulfilled, (state, { payload }) => {
+            //     state.name = payload?.data?.user?.displayName;
+            //     state.email = payload?.data?.user?.email;
+            //     state.password = payload?.data?.user?.password;
+            //     state.image = payload?.data?.user?.photoURL;
+            //     state.isLoading = false;
+            //     state.isError = false;
+            //     state.status = 'success'
+            // })
+            // .addCase(createUser.rejected, (state, action) => {
+            //     state.isLoading = false;
+            //     state.isError = true;
+            //     state.error = action.error.message;
+            //     state.status = 'failed';
+            // })
 
             // ---------- SIGN IN USERS -------
             .addCase(signInUser.pending, (state) => {
@@ -113,5 +131,5 @@ const userSlice = createSlice({
     }
 });
 
-export const { } = userSlice.actions
+export const { createUser, setUser } = userSlice.actions
 export default userSlice.reducer;
