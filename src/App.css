@@ -93,9 +93,9 @@ ul.menu-list-box li {
 .icon-box a {
   transition: all .4s;
 }
-.icon-box a:hover{
+/* .icon-box a:hover{
   transform: translateY(-8px);;
-}
+} */
 
 /* ---------- TEAM SECTION CSS -------- */
 .overlay {

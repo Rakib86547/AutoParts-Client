@@ -8,24 +8,26 @@ import { FaRegEyeSlash } from "react-icons/fa6";
 import { FaRegEye } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux';
-import { createUser } from '../../redux/features/users/userSlice';
-// import { createUser } from '../../redux/features/users/userSlice';
+import { createUser, toggleLoading } from '../../redux/features/users/userSlice';
+import { useSaveSignupUserMutation } from '../../redux/api/baseUrl/userApi';
+import ScaleLoader from "react-spinners/ScaleLoader";
+
 
 const SignUp = () => {
-    const { register, handleSubmit, watch, formState: { errors }, } = useForm();
+    const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm();
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
     const [isMatch, setIsMatch] = useState(true);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const data = useSelector((state) => state.user);
+    const [saveUser, { data, isLoading, isError, isSuccess, error }] = useSaveSignupUserMutation();
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
     };
-
     const handleShowConfirmPassword = () => {
         setShowConfirmPassword(!showConfirmPassword)
     };
@@ -38,6 +40,25 @@ const SignUp = () => {
         }
     }, [password, confirmPassword]);
 
+    useEffect(() => {
+        if (isSuccess) {
+            if (data?.status == 'success') {
+                localStorage.setItem('token', data?.token);
+
+            }
+        }
+        if (isError) {
+            setErrorMessage(error?.data?.message)
+        }
+    }, [data, isError, error, isSuccess])
+
+    useEffect(() => {
+        if (data?.status == 'success') {
+            dispatch(createUser(data?.user));
+            localStorage.setItem('user', JSON.stringify(data?.user));
+        }
+    }, [data, isSuccess, dispatch])
+
 
     const handleSignup = (data) => {
         if (!isMatch) {
@@ -46,25 +67,26 @@ const SignUp = () => {
         } else {
             setMessage(' ')
         }
-        const image = data?.file[0];
+
+        // const image = data?.file[0];
         const formData = new FormData();
-        formData.append('image', image);
-        const userInfo = {
-            name: data?.name,
-            email: data?.email,
-            // image: formData,
-            image: image?.name,
-            password: data?.password,
-            confirmPassword: data?.confirmPassword
-        };
-        // dispatch(createUser({ email: data?.email, password: data?.password, name: userInfo?.name, image: userInfo?.image }))
-        dispatch(createUser(userInfo))
+        formData.append('image', data?.file[0]);
+        formData.append('name', data?.name);
+        formData.append('email', data?.email);
+        formData.append('password', data?.password);
+        formData.append('confirmPassword', data?.confirmPassword);
+        // console.log('formData content =');
+        // for (const [key, value] of formData.entries()) {
+        //     console.log(key, value);
+        // }
+        saveUser(formData)
+        reset()
         navigate('/')
     }
 
-    
 
     return (
+
         <div className='parent-container'>
             <div className='py-[100px]'>
                 <div className="w-[600px] mx-auto max-w-full overflow-hidden bg-white rounded-lg dark:bg-gray-800">
@@ -95,6 +117,7 @@ const SignUp = () => {
                                     aria-label="Email Address"
                                     {...register("email")}
                                 />
+                                <span className='text-red-500 flex items-start'>{isError ? errorMessage : ' '}</span>
                             </div>
 
 
@@ -142,7 +165,22 @@ const SignUp = () => {
                             </div>
                             <div className="mt-6">
                                 <button className="w-full px-6 py-2.5 text-sm font-medium tracking-wide  capitalize transition-colors  transform  rounded-lg focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50 bg-[#D90368] text-white hover:bg-[#191613] duration-300">
-                                    Sign Up
+                                    {
+                                        isLoading ? (<ScaleLoader
+                                            color={"#fff"}
+                                            loading={isLoading}
+                                            cssOverride={{
+                                                display: "block",
+                                                margin: "0 auto",
+                                            }}
+                                            // size={1}
+                                            height={10}
+                                            aria-label="Loading Spinner"
+                                            data-testid="loader"
+                                        />)
+                                            :
+                                            'Sign Up'
+                                    }
                                 </button>
                             </div>
                         </form>

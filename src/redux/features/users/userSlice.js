@@ -6,11 +6,6 @@ import auth from "../../../pages/firebase/firebase.config";
 
 
 const initialState = {
-    // name: '',
-    // email: '',
-    // password: '',
-    // confirmPassword: '',
-    // image: '',
     user: {},
     isLoading: true,
     isError: false,
@@ -48,23 +43,20 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         createUser: (state, action) => {
-            console.log('data of action from userSlice =', action)
             state.user = action.payload
-            if (action.payload.email) {
-                console.log('email of payload =', action.payload.email)
-                state.isLoading = false
-                console.log('toggle false =', false);
-            } else {
-                console.log('toggle true =', true)
-                state.isLoading = true
-            }
         },
         setUser: (state, action) => {
-            console.log('set user from =', action.payload)
             state.user = action.payload;
+            state.isLoading = false,
+            state.status = 'success'
         },
         logOut: (state) => {
-            state.user = ''
+            state.user = null,
+                localStorage.removeItem('token'),
+                localStorage.removeItem('user')
+        },
+        toggleLoading: (state) => {
+            state.isLoading = false
         }
     },
     extraReducers: (builder) => {
@@ -134,5 +126,5 @@ const userSlice = createSlice({
     }
 });
 
-export const { createUser, setUser, logOut } = userSlice.actions
+export const { createUser, setUser, logOut, toggleLoading } = userSlice.actions
 export default userSlice.reducer;
