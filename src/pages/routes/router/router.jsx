@@ -9,6 +9,7 @@ import Contact from '../../Contact Us/Contact';
 import FAQ from '../../FAQ/FAQ';
 import Login from '../../Login/Login';
 import SignUp from '../../Signup/SignUp';
+import PasswordReset from '../../Login/PasswordReset';
 
 const router = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp />
+            },
+            {
+                path: '/reset-page',
+                element: <PasswordReset />
             }
         ]
     }

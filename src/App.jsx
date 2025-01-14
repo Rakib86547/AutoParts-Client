@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 import router from './pages/routes/router/router'
 import { useDispatch } from 'react-redux'
 import { setUser } from './redux/features/users/userSlice'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function App() {
   return (
     <div>
       <RouterProvider router={router} />
+      <Toaster />
     </div>
   )
 }

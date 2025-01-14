@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createUser, toggleLoading } from '../../redux/features/users/userSlice';
 import { useSaveSignupUserMutation } from '../../redux/api/baseUrl/userApi';
 import ScaleLoader from "react-spinners/ScaleLoader";
+import toast from 'react-hot-toast';
 
 
 const SignUp = () => {
@@ -44,13 +45,15 @@ const SignUp = () => {
         if (isSuccess) {
             if (data?.status == 'success') {
                 localStorage.setItem('token', data?.token);
-
+                toast.success('Signup Successfully');
+                reset()
             }
+
         }
         if (isError) {
             setErrorMessage(error?.data?.message)
         }
-    }, [data, isError, error, isSuccess])
+    }, [data, isError, error, isSuccess, reset])
 
     useEffect(() => {
         if (data?.status == 'success') {
@@ -80,7 +83,7 @@ const SignUp = () => {
         //     console.log(key, value);
         // }
         saveUser(formData)
-        reset()
+        // reset()
         navigate('/')
     }
 

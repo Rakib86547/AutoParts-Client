@@ -1,27 +1,80 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import logo from '../../assets/logo2.png'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import logo from '../../assets/logo2.png';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { googleSignIn, signInUser } from '../../redux/features/users/userSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { googleSignIn } from '../../redux/features/users/userSlice';
+import { FaRegEyeSlash } from "react-icons/fa6";
+import { FaRegEye } from "react-icons/fa6";
+import { useDispatch } from 'react-redux';
+import { useSaveLoginUserMutation } from '../../redux/api/baseUrl/userApi';
+import ScaleLoader from 'react-spinners/ScaleLoader';
+import toast from 'react-hot-toast';
+
 
 
 const Login = () => {
-    const { register, handleSubmit, watch, formState: { errors }, } = useForm();
+    const { register, handleSubmit, setValue, getValues, watch, reset, formState: { errors }, } = useForm();
+    const [saveLoginUser, { data, isLoading, isError, isSuccess, error }] = useSaveLoginUserMutation();
+    const [errorMessage, setErrorMessage] = useState('');
+    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
 
     const handleLogIn = (data) => {
         const email = data?.email;
         const password = data?.password;
-        dispatch(signInUser({ email, password }));
+        dispatch(saveLoginUser({ email, password }));
     };
+
+    useEffect(() => {
+        if (isSuccess) {
+            if (data?.status == 'success') {
+                localStorage.setItem('token', data?.token);
+            }
+            if (data?.status == 'success') {
+                toast.success('Login Successfully');
+                reset()
+            }
+        }
+    }, [isSuccess, data, reset]);
+
+    useEffect(() => {
+        if (isError) {
+            setErrorMessage(error?.data?.message)
+        }
+    }, [isError, error])
+
+
+    useEffect(() => {
+        if (isSuccess) {
+            if (data?.status == 'success') {
+                localStorage.setItem('user', JSON.stringify(data?.user))
+            }
+        }
+    }, [isSuccess, data])
 
     const handleGoogleSignIn = () => {
         dispatch(googleSignIn());
     };
-    
+
+    // ---------- Forgot Password Function ---------
+    const handleForgetPassword = () => {
+        const email = watch('email');
+        if(!email){
+            return setErrorMessage('enter your reset email')
+        }
+        else{
+            // navigate('/reset-page')
+            console.log('thank you')
+        }
+    }
     return (
         <div className='parent-container'>
             <div className='py-[100px]'>
@@ -41,23 +94,49 @@ const Login = () => {
                                     type="email"
                                     placeholder="Email Address"
                                     aria-label="Email Address"
-                                    {...register("email")}
+                                    {...register("email", {
+                                        onChange: (e) => {setValue(e.target.value)}
+                                    })}
+                                    
                                 />
                             </div>
+                            <div>
+                                <span className='text-red-500 flex justify-start'>{ errorMessage ? errorMessage : ''}</span>
+                            </div>
 
-                            <div className="w-full mt-4">
+                            <div className="w-full mt-4 flex items-center relative">
                                 <input
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-[#D90368] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#cf548d]"
-                                    type="password"
+                                    type={showPassword ? "text" : "password"}
                                     placeholder="Password"
                                     aria-label="Password"
                                     {...register("password")}
+                                    onChange={(e) => (setPassword(e.target.value))}
                                 />
+                                <span onClick={handleShowPassword} className='cursor-pointer absolute right-[20px] mt-2'> {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}</span>
                             </div>
-
+                            <div>
+                                <span className='text-red-500 flex justify-start'>{isError ? errorMessage : ''}</span>
+                            </div>
+                            <div className='flex justify-start pt-2 text-blue-500'><Link onClick={handleForgetPassword}>Forget Password?</Link></div>
                             <div className="mt-6">
                                 <button className="w-full px-6 py-2.5 text-sm font-medium tracking-wide  capitalize transition-colors  transform  rounded-lg focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50 bg-[#D90368] text-white hover:bg-[#191613] duration-300">
-                                    Sign In
+                                    {
+                                        isLoading ? (<ScaleLoader
+                                            color={"#fff"}
+                                            loading={isLoading}
+                                            cssOverride={{
+                                                display: "block",
+                                                margin: "0 auto",
+                                            }}
+                                            // size={1}
+                                            height={10}
+                                            aria-label="Loading Spinner"
+                                            data-testid="loader"
+                                        />)
+                                            :
+                                            'Sign In'
+                                    }
                                 </button>
                             </div>
                         </form>

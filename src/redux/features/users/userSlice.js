@@ -1,6 +1,6 @@
 /* eslint-disable no-empty-pattern */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../../../pages/firebase/firebase.config";
 
 
@@ -26,10 +26,10 @@ const initialState = {
 
 
 // ------------- SIGN IN USERS ----------
-export const signInUser = createAsyncThunk('user/signInUser', async ({ email, password }) => {
-    const data = await signInWithEmailAndPassword(auth, email, password);
-    return data;
-});
+// export const signInUser = createAsyncThunk('user/signInUser', async ({ email, password }) => {
+//     const data = await signInWithEmailAndPassword(auth, email, password);
+//     return data;
+// });
 
 export const googleSignIn = createAsyncThunk('user/googleSignIn', async () => {
     const googleProvider = new GoogleAuthProvider();
@@ -83,25 +83,25 @@ const userSlice = createSlice({
             // })
 
             // ---------- SIGN IN USERS -------
-            .addCase(signInUser.pending, (state) => {
-                state.isLoading = true;
-                state.isError = false;
-            })
-            .addCase(signInUser.fulfilled, (state, { payload }) => {
-                state.name = payload?.user?.displayName;
-                state.email = payload?.user?.email;
-                state.password = payload?.user?.password;
-                state.image = payload?.user?.photoURL;
-                state.isLoading = false;
-                state.isError = false;
-                state.status = 'success'
-            })
-            .addCase(signInUser.rejected, (state, action) => {
-                state.isLoading = false;
-                state.isError = true;
-                state.error = action.error.message;
-                state.status = 'failed'
-            })
+            // .addCase(signInUser.pending, (state) => {
+            //     state.isLoading = true;
+            //     state.isError = false;
+            // })
+            // .addCase(signInUser.fulfilled, (state, { payload }) => {
+            //     state.name = payload?.user?.displayName;
+            //     state.email = payload?.user?.email;
+            //     state.password = payload?.user?.password;
+            //     state.image = payload?.user?.photoURL;
+            //     state.isLoading = false;
+            //     state.isError = false;
+            //     state.status = 'success'
+            // })
+            // .addCase(signInUser.rejected, (state, action) => {
+            //     state.isLoading = false;
+            //     state.isError = true;
+            //     state.error = action.error.message;
+            //     state.status = 'failed'
+            // })
 
             // --------- SIGN IN WITH GOOGLE ------
             .addCase(googleSignIn.pending, (state) => {

@@ -16,7 +16,7 @@ const Navbar = () => {
     const handleSignOut = () => {
         dispatch(logOut());
         navigate('/login')
-    }
+    };
     return (
         <>
             <div className='border-b border-[#D90368] laptop-menu sticky top-0 left-0 w-full bg-white z-10 '>
@@ -77,8 +77,8 @@ const Navbar = () => {
                                         <div tabIndex={0} role="button" className="rounded-full overflow-hidden border border-[#D90368]">
                                             <div className="w-10 rounded-full">
                                                 <img
-                                                    alt="Tailwind CSS Navbar component"
-                                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                                    alt="Image"
+                                                    src={user?.image} />
                                             </div>
                                         </div>
                                         <ul
