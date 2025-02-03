@@ -84,7 +84,7 @@ const SignUp = () => {
         // }
         saveUser(formData)
         // reset()
-        navigate('/')
+        navigate('/login')
     }
 
 

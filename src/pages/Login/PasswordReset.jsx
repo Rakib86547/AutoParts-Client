@@ -1,9 +1,14 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import logo from '../../assets/logo2.png';
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { FaRegEye } from "react-icons/fa6";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { useResetPasswordMutation } from '../../redux/api/baseUrl/userApi';
+import toast from 'react-hot-toast';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 
 const PasswordReset = () => {
     const { register, handleSubmit, setValue, getValues, watch, reset, formState: { errors }, } = useForm();
@@ -11,6 +16,14 @@ const PasswordReset = () => {
     const [password, setPassword] = useState('');
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [searchParams] = useSearchParams();
+    const token = searchParams.get('token');
+    const email = searchParams.get('email');
+    // const [newPassword] = useState('');
+    const [resetPassword, { data, isError, isLoading, isSuccess, error }] = useResetPasswordMutation();
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
     };
@@ -18,6 +31,29 @@ const PasswordReset = () => {
     const handleShowConfirmPassword = () => {
         setShowConfirmPassword(!showConfirmPassword)
     };
+
+    const handleResetPassword = (e) => {
+        e.preventDefault()
+        const data = {
+            email: email,
+            token: token,
+            newPassword: confirmPassword
+        }
+        dispatch(resetPassword(data))
+    }
+    useEffect(() => {
+        if (data?.status == 'success') {
+            toast.custom(<p className='bg-[#00B5FF] p-2 rounded text-[#fff]'>{data?.message}</p>)
+            setTimeout(() => {
+                navigate('/login')
+            }, 5000);
+        }
+        if (isError) {
+            toast.custom(<p className='bg-red-500 p-2 rounded text-[#fff]'>{error?.data?.message}</p>)
+        }
+    }, [data, navigate, isError, error])
+    console.log(isError)
+    console.log(error)
     return (
         <div>
             <div className='parent-container'>
@@ -31,7 +67,7 @@ const PasswordReset = () => {
 
                             {/* <p className="mt-1 text-center text-[20px] text-gray-500 dark:text-gray-400">Login your account</p> */}
 
-                            <form>                                
+                            <form onSubmit={handleResetPassword} >
                                 {/* <div>
                                 <span className='text-red-500 flex justify-start'>{ errorMessage ? errorMessage : ''}</span>
                             </div> */}
@@ -61,15 +97,32 @@ const PasswordReset = () => {
                                     <span onClick={handleShowConfirmPassword} className='cursor-pointer absolute right-[20px] mt-2'> {showConfirmPassword ? <FaRegEye /> : <FaRegEyeSlash />}</span>
                                     <span>{ }</span>
                                 </div>
-
+                                <div className="mt-6">
+                                    <button className="w-full px-6 py-2.5 text-sm font-medium tracking-wide  capitalize transition-colors  transform  rounded-lg focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50 bg-[#D90368] text-white hover:bg-[#191613] duration-300">
+                                        {
+                                            isLoading ? (<ScaleLoader
+                                                color={"#fff"}
+                                                loading={isLoading}
+                                                cssOverride={{
+                                                    display: "block",
+                                                    margin: "0 auto",
+                                                }}
+                                                // size={1}
+                                                height={10}
+                                                aria-label="Loading Spinner"
+                                                data-testid="loader"
+                                            />)
+                                                :
+                                                'Submit'
+                                        }
+                                    </button>
+                                </div>
                             </form>
                         </div>
-
-                        <p className="mt-4 text-center text-gray-600 dark:text-gray-400">or sign in with</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

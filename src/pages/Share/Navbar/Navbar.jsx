@@ -17,6 +17,7 @@ const Navbar = () => {
         dispatch(logOut());
         navigate('/login')
     };
+    console.log(user)
     return (
         <>
             <div className='border-b border-[#D90368] laptop-menu sticky top-0 left-0 w-full bg-white z-10 '>

@@ -8,7 +8,7 @@ import { googleSignIn } from '../../redux/features/users/userSlice';
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { FaRegEye } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
-import { useSaveLoginUserMutation } from '../../redux/api/baseUrl/userApi';
+import { usePasswordResetMutation, useSaveLoginUserMutation } from '../../redux/api/baseUrl/userApi';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import toast from 'react-hot-toast';
 
@@ -16,7 +16,8 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
     const { register, handleSubmit, setValue, getValues, watch, reset, formState: { errors }, } = useForm();
-    const [saveLoginUser, { data, isLoading, isError, isSuccess, error }] = useSaveLoginUserMutation();
+    const [saveLoginUser, { data, isLoading, isError, isSuccess, error }] = useSaveLoginUserMutation({ refetchOnMountOrArgChange: true });
+    const [passwordReset, { data: mailMessage, isLoading: messageLoading }] = usePasswordResetMutation();
     const [errorMessage, setErrorMessage] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -41,9 +42,10 @@ const Login = () => {
             if (data?.status == 'success') {
                 toast.success('Login Successfully');
                 reset()
+                navigate('/')
             }
         }
-    }, [isSuccess, data, reset]);
+    }, [isSuccess, data, reset, navigate]);
 
     useEffect(() => {
         if (isError) {
@@ -65,16 +67,25 @@ const Login = () => {
     };
 
     // ---------- Forgot Password Function ---------
-    const handleForgetPassword = () => {
+    const handleForgetPassword = (e) => {
+        e.preventDefault();
         const email = watch('email');
-        if(!email){
+        if (!email) {
             return setErrorMessage('enter your reset email')
         }
-        else{
-            // navigate('/reset-page')
-            console.log('thank you')
+        else {
+            dispatch(passwordReset(email));
+
         }
     }
+    useEffect(() => {
+        if (messageLoading) {
+            toast.custom(<p className='bg-[#00B5FF] p-2 rounded text-[#fff]'>Processing...</p>)
+        }
+        if (mailMessage?.status == 'success') {
+            toast.custom(<p className='bg-[#00B5FF] p-2 rounded text-[#fff]'>Please Check Your Email and Follow the Instructions</p>);
+        }
+    }, [mailMessage, messageLoading])
     return (
         <div className='parent-container'>
             <div className='py-[100px]'>
@@ -95,13 +106,13 @@ const Login = () => {
                                     placeholder="Email Address"
                                     aria-label="Email Address"
                                     {...register("email", {
-                                        onChange: (e) => {setValue(e.target.value)}
+                                        onChange: (e) => { setValue(e.target.value) }
                                     })}
-                                    
+
                                 />
                             </div>
                             <div>
-                                <span className='text-red-500 flex justify-start'>{ errorMessage ? errorMessage : ''}</span>
+                                <span className='text-red-500 flex justify-start'>{errorMessage ? errorMessage : ''}</span>
                             </div>
 
                             <div className="w-full mt-4 flex items-center relative">
